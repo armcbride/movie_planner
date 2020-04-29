@@ -89,6 +89,6 @@ app.delete("/api/movies/:id", function(req, res) {
 
 // Start server so that it can begin listening to client requests.
 app.listen(PORT, function() {
-  // Log (server-side) when our server has started
+  // Log (server-side) when server has started
   console.log("Server listening on: http://localhost:" + PORT);
 });
