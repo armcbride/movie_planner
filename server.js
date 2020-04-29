@@ -4,8 +4,7 @@ var mysql = require("mysql");
 require('dotenv').config();
 var app = express();
 
-// Set the port of our application
-// process.env.PORT lets the port be set by Heroku
+// Set the port of application
 var PORT = process.env.PORT || 8080;
 
 // Parse request body as JSON
@@ -32,7 +31,7 @@ connection.connect(function(err) {
   console.log("connected as id " + connection.threadId);
 });
 
-// Use Handlebars to render the main index.html page with the movies in it.
+// render the main index.html page with the movies in it.
 app.get("/", function(req, res) {
   connection.query("SELECT * FROM movies;", function(err, data) {
     if (err) {
@@ -88,7 +87,7 @@ app.delete("/api/movies/:id", function(req, res) {
   });
 });
 
-// Start our server so that it can begin listening to client requests.
+// Start server so that it can begin listening to client requests.
 app.listen(PORT, function() {
   // Log (server-side) when our server has started
   console.log("Server listening on: http://localhost:" + PORT);
